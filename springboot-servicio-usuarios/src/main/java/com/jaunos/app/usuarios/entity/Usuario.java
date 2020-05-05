@@ -43,12 +43,12 @@ public class Usuario implements Serializable {
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	// Personalización
-	@JoinTable(name="usuarios_roles", 
-	joinColumns = @JoinColumn(name="usuario_id"),
-	inverseJoinColumns = @JoinColumn(name="role_id"),
-	// 1 usuario no puede tener rol repetido
-	uniqueConstraints = {@UniqueConstraint(columnNames = {"usuario_id", "role_id"})})
+	@JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "role_id"),
+			// 1 usuario no puede tener rol repetido
+			uniqueConstraints = { @UniqueConstraint(columnNames = { "usuario_id", "role_id" }) })
 	private List<Role> roles;
+
+	private Integer intentos;
 
 	public Usuario(Long id, String username, Boolean enabled, String password, String nombre, String apellido,
 			String email) {
@@ -129,6 +129,14 @@ public class Usuario implements Serializable {
 
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
+	}
+
+	public Integer getIntentos() {
+		return intentos;
+	}
+
+	public void setIntentos(Integer intentos) {
+		this.intentos = intentos;
 	}
 
 	/**

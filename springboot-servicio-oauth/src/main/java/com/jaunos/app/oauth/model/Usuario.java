@@ -19,6 +19,8 @@ public class Usuario {
 	private String email;
 
 	private List<Role> roles;
+	
+	private Integer intentos;
 
 	public Usuario(Long id, String username, Boolean enabled, String password, String nombre, String apellido,
 			String email) {
@@ -100,4 +102,14 @@ public class Usuario {
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
+
+	public Integer getIntentos() {
+		return intentos;
+	}
+
+	public void setIntentos(Integer intentos) {
+		this.intentos = intentos;
+	}
+	
+	
 }
